@@ -1,5 +1,16 @@
 # simple-html-template README
 
+## - My Notes
+
+- https://www.youtube.com/watch?v=OhfOcqSU62g
+- https://code.visualstudio.com/api/get-started/your-first-extension
+
+
+
+
+
+
+
 This is the README for your extension "simple-html-template". After writing up a brief description, we recommend including the following sections.
 
 ## Features
