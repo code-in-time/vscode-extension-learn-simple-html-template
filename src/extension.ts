@@ -1,6 +1,8 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import * as  fs from 'fs';
+import * as  path from 'path';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -14,10 +16,29 @@ export function activate(context: vscode.ExtensionContext) {
 	// Now provide the implementation of the command with registerCommand
 	// The commandId parameter must match the command field in package.json
 	let disposable = vscode.commands.registerCommand('extension.simple-html-template', () => {
-		// The code you place here will be executed every time your command is executed
+		// // The code you place here will be executed every time your command is executed
 
-		// Display a message box to the user
-		vscode.window.showInformationMessage('simple-html-template!');
+		// // Display a message box to the user
+		// vscode.window.showInformationMessage('simple-html-template!');
+
+		// the code executes here
+		const html = `
+			<html>
+				<head>
+				</head>
+				<body>
+					{/* insert body here */}
+				</body>
+			</html>
+		`;
+
+		const folderPath: any = vscode.workspace.rootPath;
+		//
+
+		fs.writeFile(path.join(folderPath, 'index.html'), html, err => {
+			console.error(err);
+			return err ? vscode.window.showErrorMessage("simple html template error") : vscode.window.showInformationMessage('It worked');
+		});
 	});
 
 	context.subscriptions.push(disposable);
